@@ -1,7 +1,7 @@
 {
   "name": "android-expo",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "app.ts",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
