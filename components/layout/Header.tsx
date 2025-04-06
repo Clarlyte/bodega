@@ -1,65 +1,42 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
+import * as React from "react"
+import { View, Text, TouchableOpacity } from "react-native"
+import { Menu, Bell, User } from "lucide-react-native"
 
 interface HeaderProps {
-  title: string;
-  showProfile?: boolean;
-  showSettings?: boolean;
-  onProfilePress?: () => void;
-  onSettingsPress?: () => void;
+  title: string
+  onMenuPress?: () => void
+  onNotificationPress?: () => void
+  onProfilePress?: () => void
 }
 
-export default function Header({
+export function Header({
   title,
-  showProfile = true,
-  showSettings = true,
+  onMenuPress,
+  onNotificationPress,
   onProfilePress,
-  onSettingsPress,
 }: HeaderProps) {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.title}>{title}</Text>
-        <View style={styles.iconsContainer}>
-          {showProfile && (
-            <TouchableOpacity onPress={onProfilePress} style={styles.iconButton}>
-              <Ionicons name="person-circle" size={24} color="#007AFF" />
-            </TouchableOpacity>
-          )}
-          {showSettings && (
-            <TouchableOpacity onPress={onSettingsPress} style={styles.iconButton}>
-              <Ionicons name="settings" size={24} color="#007AFF" />
-            </TouchableOpacity>
-          )}
-        </View>
+    <View className="flex-row items-center justify-between border-b border-gray-200 bg-white px-4 py-3">
+      <View className="flex-row items-center">
+        {onMenuPress && (
+          <TouchableOpacity onPress={onMenuPress} className="mr-4">
+            <Menu size={24} stroke="#000" />
+          </TouchableOpacity>
+        )}
+        <Text className="text-xl font-semibold">{title}</Text>
       </View>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#FFFFFF',
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E5EA',
-  },
-  content: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  iconsContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  iconButton: {
-    marginLeft: 16,
-  },
-}); 
+      <View className="flex-row items-center space-x-4">
+        {onNotificationPress && (
+          <TouchableOpacity onPress={onNotificationPress}>
+            <Bell size={24} stroke="#000" />
+          </TouchableOpacity>
+        )}
+        {onProfilePress && (
+          <TouchableOpacity onPress={onProfilePress}>
+            <User size={24} stroke="#000" />
+          </TouchableOpacity>
+        )}
+      </View>
+    </View>
+  )
+} 
