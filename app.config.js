@@ -13,13 +13,15 @@ module.exports = {
     },
     assetBundlePatterns: ["**/*"],
     ios: {
-      supportsTablet: true
+      supportsTablet: true,
+      bundleIdentifier: "com.android-expo"
     },
     android: {
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: "#ffffff"
-      }
+      },
+      package: "com.androidexpo"
     },
     web: {
       favicon: "./assets/favicon.png"
@@ -29,6 +31,10 @@ module.exports = {
       supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
       appEnv: process.env.APP_ENV || "development"
     },
-    plugins: ["expo-router"]
+    plugins: ["expo-router"],
+    scheme: "android-expo",
+    experiments: {
+      tsconfigPaths: true
+    }
   }
 }; 

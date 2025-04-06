@@ -4,7 +4,8 @@ module.exports = function (api) {
     presets: ['babel-preset-expo'],
     plugins: [
       ['nativewind/babel', { mode: 'transformOnly' }],
-      'expo-router/babel'
+      '@babel/plugin-proposal-export-namespace-from',
+      'react-native-reanimated/plugin'
     ],
   };
 }; 
