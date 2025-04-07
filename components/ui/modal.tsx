@@ -1,6 +1,6 @@
 import * as React from "react"
 import { View, Text, TouchableOpacity, Modal as RNModal } from "react-native"
-import { cn } from "../../lib/utils"
+import { cn } from "../../lib/tailwind/utils"
 import { X } from "lucide-react-native"
 
 interface ModalProps {

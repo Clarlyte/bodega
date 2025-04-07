@@ -1,6 +1,6 @@
 import * as React from "react"
 import { View, TextInput, TouchableOpacity } from "react-native"
-import { cn } from "../../lib/utils"
+import { cn } from "../../lib/tailwind/utils"
 import { Search } from "lucide-react-native"
 
 interface SearchBarProps {

@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Text, TouchableOpacity, View } from "react-native"
-import { cn } from "../../lib/utils"
+import { cn } from "../../lib/tailwind/utils"
 
 const buttonVariants = {
   default: "bg-primary text-primary-foreground",

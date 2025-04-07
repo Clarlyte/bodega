@@ -1,6 +1,6 @@
 import * as React from "react"
 import { View, Text, Image, TouchableOpacity } from "react-native"
-import { cn } from "../../lib/utils"
+import { cn } from "../../lib/tailwind/utils"
 
 interface ProductCardProps {
   name: string
