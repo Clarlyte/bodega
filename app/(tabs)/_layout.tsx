@@ -1,19 +1,19 @@
 import { Tabs } from 'expo-router';
 import { useTheme } from '../../lib/context/ThemeContext';
-import { FontAwesome } from '@expo/vector-icons';
+import { Home, Package, QrCode, User } from 'lucide-react-native';
 
-export default function TabLayout() {
-  const { theme, colors } = useTheme();
+export default function TabsLayout() {
+  const { colors } = useTheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: colors.primary,
-        tabBarInactiveTintColor: colors.text,
         tabBarStyle: {
           backgroundColor: colors.background,
           borderTopColor: colors.border,
         },
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: colors.muted,
         headerStyle: {
           backgroundColor: colors.background,
         },
@@ -21,39 +21,31 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="dashboard"
         options={{
           title: 'Dashboard',
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name="home" size={24} color={color} />
-          ),
+          tabBarIcon: ({ color, size }) => <Home size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="inventory"
         options={{
           title: 'Inventory',
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name="list" size={24} color={color} />
-          ),
+          tabBarIcon: ({ color, size }) => <Package size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="scan"
         options={{
           title: 'Scan',
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name="barcode" size={24} color={color} />
-          ),
+          tabBarIcon: ({ color, size }) => <QrCode size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name="user" size={24} color={color} />
-          ),
+          tabBarIcon: ({ color, size }) => <User size={size} color={color} />,
         }}
       />
     </Tabs>

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
+import { COLORS } from '../constants/theme';
 
 export type Theme = 'light' | 'dark';
 
@@ -8,26 +9,38 @@ interface ThemeContextType {
   colors: {
     primary: string;
     background: string;
-    foreground: string;
     text: string;
     border: string;
+    accent: string;
+    error: string;
+    success: string;
+    warning: string;
+    muted: string;
   };
 }
 
 const lightColors = {
-  primary: '#007AFF',
-  background: '#FFFFFF',
-  foreground: '#000000',
-  text: '#000000',
-  border: '#E5E5E5',
+  primary: COLORS.primary,
+  background: COLORS.background,
+  text: COLORS.text,
+  border: COLORS.border,
+  accent: COLORS.accent,
+  error: COLORS.error,
+  success: COLORS.success,
+  warning: COLORS.warning,
+  muted: COLORS.textMuted,
 };
 
 const darkColors = {
-  primary: '#0A84FF',
-  background: '#000000',
-  foreground: '#FFFFFF',
-  text: '#FFFFFF',
-  border: '#38383A',
+  primary: COLORS.primaryLight,
+  background: COLORS.backgroundDark,
+  text: COLORS.textDark,
+  border: COLORS.borderDark,
+  accent: COLORS.accentLight,
+  error: COLORS.error,
+  success: COLORS.success,
+  warning: COLORS.warning,
+  muted: COLORS.textMuted,
 };
 
 const ThemeContext = createContext<ThemeContextType>({
