@@ -35,6 +35,7 @@ module.exports = {
     scheme: "android-expo",
     experiments: {
       tsconfigPaths: true
-    }
+    },
+    newArchEnabled: true
   }
 }; 
