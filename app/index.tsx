@@ -3,7 +3,7 @@ import { View, Image, Animated, Text } from 'react-native';
 import { router } from 'expo-router';
 import { useTheme } from '../lib/context/ThemeContext';
 import { LoadingSpinner } from '../components/ui/loading-spinner';
-import { checkAuthStatus } from '../lib/supabase/services/auth';
+import { authService } from '../lib/supabase/services/auth';
 
 export default function Home() {
   const [fadeAnim] = useState(new Animated.Value(0));
@@ -31,7 +31,7 @@ export default function Home() {
 
         // Check authentication status
         setLoadingText('Checking authentication...');
-        const user = await checkAuthStatus();
+        const user = await authService.checkAuthStatus();
 
         // Simulate loading time for better UX
         await new Promise(resolve => setTimeout(resolve, 1500));

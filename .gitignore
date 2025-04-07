@@ -36,3 +36,7 @@ yarn-error.*
 *.tsbuildinfo
 
 .cursorrules
+
+.env
+.env.*
+!.env.example
